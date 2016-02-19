@@ -164,8 +164,12 @@ PTU46::PTU46(const char * port, int rate) {
 
     PMin = GetLimit(PTU46_PAN, PTU46_MIN);
     PMax = GetLimit(PTU46_PAN, PTU46_MAX);
-    TMin = GetLimit(PTU46_TILT, PTU46_MIN);
-    TMax = GetLimit(PTU46_TILT, PTU46_MAX);
+    //TMin = GetLimit(PTU46_TILT, PTU46_MIN);
+    //TMax = GetLimit(PTU46_TILT, PTU46_MAX);
+    TMin = -5000;
+    TMax = 2000; 
+    //Measured experimentally, Feb 2016
+
     PSMin = GetLimit(PTU46_PAN, PTU46_MIN_SPEED);
     PSMax = GetLimit(PTU46_PAN, PTU46_MAX_SPEED);
     TSMin = GetLimit(PTU46_TILT, PTU46_MIN_SPEED);
@@ -200,8 +204,11 @@ PTU46::PTU46(const char * port, int rate) {
 
         PMin = GetLimit(PTU46_PAN, PTU46_MIN);
         PMax = GetLimit(PTU46_PAN, PTU46_MAX);
-        TMin = GetLimit(PTU46_TILT, PTU46_MIN);
-        TMax = GetLimit(PTU46_TILT, PTU46_MAX);
+        //TMin = GetLimit(PTU46_TILT, PTU46_MIN);
+        //TMax = GetLimit(PTU46_TILT, PTU46_MAX);
+    TMin = -5000;
+    TMax = 2000; 
+
         PSMin = GetLimit(PTU46_PAN, PTU46_MIN_SPEED);
         PSMax = GetLimit(PTU46_PAN, PTU46_MAX_SPEED);
         TSMin = GetLimit(PTU46_TILT, PTU46_MIN_SPEED);

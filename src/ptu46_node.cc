@@ -129,7 +129,10 @@ void PTU46_Node::SetGoal(const sensor_msgs::JointState::ConstPtr& msg) {
     double pan = msg->position[0];
     double tilt = msg->position[1];
     double panspeed = msg->velocity[0];
+    if (panspeed == 0) panspeed = 1.5; //Added by Mike Feb 2016
     double tiltspeed = msg->velocity[1];
+    if (tiltspeed == 0) tiltspeed = 1.5; //Added by Mike Feb 2016
+
     m_pantilt->SetPosition(PTU46_PAN, pan);
     m_pantilt->SetPosition(PTU46_TILT, tilt);
     m_pantilt->SetSpeed(PTU46_PAN, panspeed);
@@ -163,10 +166,10 @@ void PTU46_Node::spinOnce() {
     joint_state.name.resize(2);
     joint_state.position.resize(2);
     joint_state.velocity.resize(2);
-    joint_state.name[0] ="pan";
+    joint_state.name[0] ="ptu_pan";
     joint_state.position[0] = pan;
     joint_state.velocity[0] = panspeed;
-    joint_state.name[1] ="tilt";
+    joint_state.name[1] ="ptu_tilt";
     joint_state.position[1] = tilt;
     joint_state.velocity[1] = tiltspeed;
     m_joint_pub.publish(joint_state);
